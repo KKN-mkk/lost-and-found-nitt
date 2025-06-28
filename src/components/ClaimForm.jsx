@@ -1,16 +1,25 @@
-// src/components/ClaimForm.jsx
 import React, { useState } from 'react';
+import { doc, updateDoc } from 'firebase/firestore';
+import { db } from '../firebase';
 
 function ClaimForm({ item }) {
   const [answer, setAnswer] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (answer.toLowerCase() === item.secretAnswer.toLowerCase()) {
-      setMessage("✅ Correct! You may now contact the person who posted this.");
+      setMessage("✅ Correct! Marking as claimed...");
+
+      // update Firestore
+      const itemRef = doc(db, 'lostItems', item.id);
+      await updateDoc(itemRef, {
+        claimed: true
+      });
+
+      setMessage("✅ Claimed! The owner will be notified.");
     } else {
-      setMessage("❌ Incorrect answer. Please try again.");
+      setMessage("❌ Incorrect answer. Try again.");
     }
   };
 
@@ -36,3 +45,4 @@ function ClaimForm({ item }) {
 }
 
 export default ClaimForm;
+
