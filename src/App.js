@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import LostItemForm from './components/LostItemForm';
+import LostItemFeed from './components/LostItemFeed';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen bg-gradient-to-b from-yellow-100 to-white p-6 text-gray-800">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-6xl bg-gradient-to-r from-pink-400 to-yellow-400 text-white p-4 rounded-xl shadow-xl text-center">
+  Tailwind is Working?
+</h1>
+
+
+        <LostItemForm />
+        <LostItemFeed />
+      </div>
     </div>
   );
 }
