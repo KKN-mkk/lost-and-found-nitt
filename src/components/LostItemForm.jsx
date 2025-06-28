@@ -11,7 +11,7 @@ function LostItemForm() {
     location: '',
     secretQuestion: '',
     secretAnswer: '',
-    image: null
+    image: null,
   });
 
   const [uploading, setUploading] = useState(false);
@@ -30,17 +30,26 @@ function LostItemForm() {
 
     try {
       let imageUrl = '';
+
       if (formData.image) {
-        // Compress image
+        console.log("🟡 Compressing image...");
         const compressedFile = await imageCompression(formData.image, {
           maxSizeMB: 0.5,
           maxWidthOrHeight: 1024,
           useWebWorker: true,
         });
 
+        console.log("🟢 Compressed size:", compressedFile.size, "bytes");
+
         const imageRef = ref(storage, `lostItems/${Date.now()}_${formData.image.name}`);
+        console.log("📤 Uploading to Firebase Storage...");
         const snapshot = await uploadBytes(imageRef, compressedFile);
+        console.log("✅ Upload complete");
+
         imageUrl = await getDownloadURL(snapshot.ref);
+        console.log("🔗 Got image URL:", imageUrl);
+      } else {
+        console.log("📁 No image selected, skipping upload.");
       }
 
       await addDoc(collection(db, 'lostItems'), {
@@ -64,8 +73,8 @@ function LostItemForm() {
         image: null
       });
     } catch (error) {
-      console.error("Error uploading item:", error);
-      alert("❌ Something went wrong: " + error.message);
+      console.error("❌ Upload error:", error);
+      alert("Upload failed: " + error.message);
     }
 
     setUploading(false);
@@ -128,8 +137,8 @@ function LostItemForm() {
         className="input"
         type="file"
         name="image"
-        onChange={handleChange}
         accept="image/*"
+        onChange={handleChange}
       />
 
       <button
