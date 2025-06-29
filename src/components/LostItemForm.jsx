@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { db, storage } from '../firebase';
+import { db } from '../firebase';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import imageCompression from 'browser-image-compression';
 
 function LostItemForm() {
   const [formData, setFormData] = useState({
@@ -11,17 +9,13 @@ function LostItemForm() {
     location: '',
     secretQuestion: '',
     secretAnswer: '',
-    image: null,
+    imageUrl: '',  // Now using a URL instead of file
   });
 
   const [uploading, setUploading] = useState(false);
 
   const handleChange = (e) => {
-    if (e.target.name === 'image') {
-      setFormData({ ...formData, image: e.target.files[0] });
-    } else {
-      setFormData({ ...formData, [e.target.name]: e.target.value });
-    }
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
@@ -29,36 +23,13 @@ function LostItemForm() {
     setUploading(true);
 
     try {
-      let imageUrl = '';
-
-      if (formData.image) {
-        console.log("🟡 Compressing image...");
-        const compressedFile = await imageCompression(formData.image, {
-          maxSizeMB: 0.5,
-          maxWidthOrHeight: 1024,
-          useWebWorker: true,
-        });
-
-        console.log("🟢 Compressed size:", compressedFile.size, "bytes");
-
-        const imageRef = ref(storage, `lostItems/${Date.now()}_${formData.image.name}`);
-        console.log("📤 Uploading to Firebase Storage...");
-        const snapshot = await uploadBytes(imageRef, compressedFile);
-        console.log("✅ Upload complete");
-
-        imageUrl = await getDownloadURL(snapshot.ref);
-        console.log("🔗 Got image URL:", imageUrl);
-      } else {
-        console.log("📁 No image selected, skipping upload.");
-      }
-
       await addDoc(collection(db, 'lostItems'), {
         title: formData.title,
         description: formData.description,
         location: formData.location,
         secretQuestion: formData.secretQuestion,
         secretAnswer: formData.secretAnswer.toLowerCase(),
-        imageUrl,
+        imageUrl: formData.imageUrl,
         claimed: false,
         createdAt: Timestamp.now()
       });
@@ -70,7 +41,7 @@ function LostItemForm() {
         location: '',
         secretQuestion: '',
         secretAnswer: '',
-        image: null
+        imageUrl: '',
       });
     } catch (error) {
       console.error("❌ Upload error:", error);
@@ -135,9 +106,10 @@ function LostItemForm() {
 
       <input
         className="input"
-        type="file"
-        name="image"
-        accept="image/*"
+        type="text"
+        name="imageUrl"
+        placeholder="Image URL (optional)"
+        value={formData.imageUrl}
         onChange={handleChange}
       />
 
