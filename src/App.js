@@ -10,7 +10,7 @@ export default function App() {
       <nav className="flex items-center justify-between px-8 py-4 border-b border-white/10">
         <div className="flex items-center gap-2 text-2xl font-bold">
           <span className="text-orange-400 text-3xl">🔍</span>
-          <span>Findr</span>
+          <span>FindNITT</span>
         </div>
         <ul className="flex gap-6 text-white text-sm">
           <li className="hover:text-orange-400 cursor-pointer">Home</li>
@@ -34,8 +34,7 @@ export default function App() {
           Lost Something On Campus? <br /> Let's Help You Find It
         </h1>
         <p className="mt-4 text-gray-300 text-sm md:text-base">
-          Searched every corner of campus? Don’t stress! Post, search, or report lost and found items in minutes. Reconnect with what matters.
-        </p>
+          Tired of Searching?</p>
         <div className="mt-6 flex justify-center gap-4 flex-wrap">
           <a href="#form">
             <button className="bg-white text-black px-5 py-2 rounded-md hover:bg-gray-200">Report an Item</button>
