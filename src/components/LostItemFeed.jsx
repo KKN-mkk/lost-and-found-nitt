@@ -32,12 +32,15 @@ function LostItemFeed() {
               <p className="text-sm text-gray-600"><strong>📍 Location:</strong> {item.location}</p>
               <p className="text-sm text-gray-600">{item.description}</p>
               {item.imageUrl && (
-                <img
-                  className="rounded-md w-full max-w-xs"
-                  src={item.imageUrl}
-                  alt={item.title}
-                />
-              )}
+  <a href={item.imageUrl} target="_blank" rel="noopener noreferrer">
+    <img
+      className="rounded-md w-full max-w-xs hover:scale-105 transition-transform"
+      src={item.imageUrl}
+      alt={item.title}
+    />
+  </a>
+)}
+
               {item.claimed ? (
                 <p className="text-green-600 font-semibold">✅ Already Claimed</p>
               ) : (
