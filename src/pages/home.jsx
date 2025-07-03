@@ -20,7 +20,7 @@ export default function Home() {
     const [user, setUser] = useState(() => JSON.parse(localStorage.getItem("user")));
     const navigate = useNavigate();
 
-    // --- Add these refs ---
+    
     const lostFormRef = useRef(null);
     const foundFormRef = useRef(null);
     const lostFeedRef = useRef(null);
@@ -50,7 +50,7 @@ export default function Home() {
         }
     };
 
-    // Scroll handlers for feeds
+    
     const scrollToLostFeed = () => {
         lostFeedRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     };
@@ -192,10 +192,10 @@ export default function Home() {
     minHeight: "340px",
     marginBottom: "32px",
     border: `1.5px solid ${BORDER}`,
-    // No marginTop here!
+    
   }}
 >
-  {/* --- Lost Side --- */}
+  
   <div className="flex flex-1 flex-col items-end justify-between py-4">
     <div className="w-full text-right">
       <span
@@ -228,12 +228,12 @@ export default function Home() {
     </button>
   </div>
 
-  {/* Divider */}
+  
   <div className="hidden md:flex flex-col items-center justify-center">
     <div className="h-full w-px bg-gray-200 opacity-50" />
   </div>
 
-  {/* --- Found Side --- */}
+  
   <div className="flex flex-1 flex-col items-start justify-between py-4">
     <div className="w-full text-left">
       <span
@@ -281,7 +281,7 @@ export default function Home() {
                             }}
                         >
                             <h2 className="text-2xl font-bold mb-4" style={{ color: INDIGO }}>
-                                {/* Optional heading */}
+                                
                             </h2>
                             <LostItemForm />
                         </section>
@@ -297,12 +297,12 @@ export default function Home() {
                             }}
                         >
                             <h2 className="text-2xl font-bold mb-4" style={{ color: FOUND_PINK }}>
-                                {/* Optional heading */}
+                                
                             </h2>
                             <FoundItemForm />
                         </section>
                     }
-                    {/* Attach refs to feeds for scrolling */}
+                    
                     <div ref={lostFeedRef}>
                         <LostItemFeed />
                     </div>
