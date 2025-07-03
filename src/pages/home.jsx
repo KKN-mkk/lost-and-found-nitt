@@ -186,89 +186,87 @@ export default function Home() {
                 </div>
             )}
 
-            <section
-                className="w-full flex flex-col md:flex-row items-stretch justify-around gap-12 py-4 px-4 bg-transparent"
-                style={{
-                    minHeight: "340px",
-                    marginTop: "32px",
-                    marginBottom: "32px",
-                    border: `1.5px solid ${BORDER}`,
-                }}
-            >
-                <div className="flex flex-1 flex-col items-end justify-between py-4">
-                    <div className="w-full text-right">
-                        <span
-                            className="mb-2 text-2xl md:text-5xl font-extrabold"
-                            style={{ color: INDIGO, lineHeight: 1.18 }}
-                        >
-                            Lost something?<br />Don’t worry.
-                        </span>
-                        <p className="mt-2 text-base md:text-xl text-gray-500 font-medium">
-                            Post details and let the community <br /> help you recover it.
-                        </p>
-                    </div>
-                    <img
-                        src={lostBoy}
-                        alt="Lost Boy"
-                        className="my-4 w-[15vw]"
-                        style={{
-                            objectFit: "contain",
-                        }}
-                    />
-                    <button
-                        onClick={lostClick}
-                        className="px-8 py-2 rounded-full font-bold text-base md:text-2xl mr-12 shadow transition focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2"
-                        style={{
-                            background: INDIGO,
-                            color: TEXT_LIGHT,
-                            letterSpacing: "1px",
-                            minWidth: "108px",
-                        }}
-                    >
-                        LOST
-                    </button>
-                </div>
+           <section
+  className="w-full flex flex-col md:flex-row items-stretch justify-around gap-12 py-4 px-4 bg-transparent"
+  style={{
+    minHeight: "340px",
+    marginBottom: "32px",
+    border: `1.5px solid ${BORDER}`,
+    // No marginTop here!
+  }}
+>
+  {/* --- Lost Side --- */}
+  <div className="flex flex-1 flex-col items-end justify-between py-4">
+    <div className="w-full text-right">
+      <span
+        className="mb-2 text-2xl md:text-5xl font-extrabold"
+        style={{ color: INDIGO, lineHeight: 1.18 }}
+      >
+        Lost something?<br />Don’t worry.
+      </span>
+      <p className="mt-2 text-base md:text-xl text-gray-500 font-medium">
+        Post details and let the community <br /> help you recover it.
+      </p>
+    </div>
+    <img
+      src={lostBoy}
+      alt="Lost Boy"
+      className="my-4 w-[15vw]"
+      style={{ objectFit: "contain" }}
+    />
+    <button
+      onClick={lostClick}
+      className="px-8 py-2 rounded-full font-bold text-base md:text-2xl mr-12 shadow transition focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2"
+      style={{
+        background: INDIGO,
+        color: TEXT_LIGHT,
+        letterSpacing: "1px",
+        minWidth: "108px",
+      }}
+    >
+      LOST
+    </button>
+  </div>
 
-                {/* Divider */}
-                <div className="hidden md:flex flex-col items-center justify-center">
-                    <div className="h-full w-px bg-gray-200 opacity-50" />
-                </div>
+  {/* Divider */}
+  <div className="hidden md:flex flex-col items-center justify-center">
+    <div className="h-full w-px bg-gray-200 opacity-50" />
+  </div>
 
-                {/* Found Side */}
-                <div className="flex flex-1 flex-col items-start justify-between py-4">
-                    <div className="w-full text-left">
-                        <span
-                            className="mb-2 text-2xl md:text-5xl font-extrabold"
-                            style={{ color: FOUND_PINK, lineHeight: 1.18 }}
-                        >
-                            Found something?<br />Bravo!
-                        </span>
-                        <p className="mt-2 text-base md:text-lg text-gray-500 font-medium">
-                            Help someone by reporting <br />what you found.
-                        </p>
-                    </div>
-                    <img
-                        src={foundGirl}
-                        alt="Found Girl"
-                        className="my-4 w-[15vw]"
-                        style={{
-                            objectFit: "contain",
-                        }}
-                    />
-                    <button
-                        onClick={foundClick}
-                        className="px-8 py-2 rounded-full font-bold text-base md:text-2xl ml-12 shadow transition focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2"
-                        style={{
-                            background: FOUND_PINK,
-                            color: TEXT_LIGHT,
-                            letterSpacing: "1px",
-                            minWidth: "120px",
-                        }}
-                    >
-                        FOUND
-                    </button>
-                </div>
-            </section>
+  {/* --- Found Side --- */}
+  <div className="flex flex-1 flex-col items-start justify-between py-4">
+    <div className="w-full text-left">
+      <span
+        className="mb-2 text-2xl md:text-5xl font-extrabold"
+        style={{ color: FOUND_PINK, lineHeight: 1.18 }}
+      >
+        Found something?<br />Bravo!
+      </span>
+      <p className="mt-2 text-base md:text-lg text-gray-500 font-medium">
+        Help someone by reporting <br />what you found.
+      </p>
+    </div>
+    <img
+      src={foundGirl}
+      alt="Found Girl"
+      className="my-4 w-[15vw]"
+      style={{ objectFit: "contain" }}
+    />
+    <button
+      onClick={foundClick}
+      className="px-8 py-2 rounded-full font-bold text-base md:text-2xl ml-12 shadow transition focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2"
+      style={{
+        background: FOUND_PINK,
+        color: TEXT_LIGHT,
+        letterSpacing: "1px",
+        minWidth: "120px",
+      }}
+    >
+      FOUND
+    </button>
+  </div>
+</section>
+
 
             <main className="px-4 py-12">
                 <div className="max-w-4xl mx-auto space-y-12">

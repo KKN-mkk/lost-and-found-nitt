@@ -109,7 +109,7 @@ function FoundItemForm() {
             type="text"
             name="time"
             id="time"
-            placeholder="e.g. Morning 10 AM"
+            placeholder="e.g.30th June Morning 10 AM"
             onChange={handleChange}
             value={formData.time}
             required

@@ -123,7 +123,7 @@ function LostItemForm() {
             type="text"
             name="time"
             id="time"
-            placeholder="e.g. Evening 6 PM"
+            placeholder="e.g. 25th June Evening 6 PM"
             onChange={handleChange}
             value={formData.time}
             required
