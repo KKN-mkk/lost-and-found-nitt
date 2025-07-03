@@ -4,7 +4,7 @@
 A centralized platform designed to streamline the **lost & found** process for students at **NIT Trichy**, replacing cluttered WhatsApp groups with a structured, secure, and user-friendly web application.
 
 ## 🌐 Live Prototype
-* **Figma Design:** https://lostfoundnitt.netlify.app/
+* **Live Link:** https://lostfoundnitt.netlify.app/
 * **Figma Design:** [View Design](https://www.figma.com/design/5ZnwVWdP4aX8dSxWHXHS1j/TC_SOFTWARE_TASK?node-id=0-1&t=GONP7c7e3uxxXvMm-1)
 * **Figma Prototype:** [View Prototype](https://www.figma.com/proto/5ZnwVWdP4aX8dSxWHXHS1j/TC_SOFTWARE_TASK?page-id=0%3A1&node-id=5-3&p=f&viewport=-39%2C197%2C0.32&t=H6HeVEKFxs91cObd-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=5%3A3)
 
