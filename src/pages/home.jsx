@@ -20,7 +20,6 @@ export default function Home() {
     const [user, setUser] = useState(() => JSON.parse(localStorage.getItem("user")));
     const navigate = useNavigate();
 
-    
     const lostFormRef = useRef(null);
     const foundFormRef = useRef(null);
     const lostFeedRef = useRef(null);
@@ -50,7 +49,6 @@ export default function Home() {
         }
     };
 
-    
     const scrollToLostFeed = () => {
         lostFeedRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     };
@@ -94,7 +92,7 @@ export default function Home() {
     return (
         <div className="min-h-screen" style={{ background: BG_GRADIENT }}>
             <nav
-                className="flex items-center justify-between px-8 py-4 border-b"
+                className="flex flex-wrap items-center justify-between px-2 sm:px-4 md:px-8 py-4 border-b"
                 style={{ background: CARD_BG, borderColor: BORDER }}
             >
                 <div className="flex items-center gap-2 text-2xl font-bold tracking-tight">
@@ -108,7 +106,7 @@ export default function Home() {
                     >&#9679;</span>
                     <span style={{ color: INDIGO, fontWeight: 800 }}>FindNITT</span>
                 </div>
-                <ul className="flex gap-6 text-base font-medium" style={{ color: "#808080" }}>
+                <ul className="flex flex-wrap gap-2 sm:gap-4 md:gap-6 text-base font-medium" style={{ color: "#808080" }}>
                     <li
                         className="hover:text-indigo-400 cursor-pointer transition"
                         onClick={() => {
@@ -141,7 +139,7 @@ export default function Home() {
                     </li>
                 </ul>
                 <button onClick={user ? handleLogout : handleLogin}
-                    className="text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-full text-sm px-6 py-2 shadow transition"
+                    className="text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 font-medium rounded-full text-xs xs:text-sm md:text-base px-3 xs:px-4 md:px-6 py-2 shadow transition"
                 >
                     {user ? "Logout" : "Login"}
                 </button>
@@ -153,7 +151,7 @@ export default function Home() {
                     onClick={handleOverlayClick}
                     className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40"
                 >
-                    <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-8 relative border border-indigo-100">
+                    <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-3 sm:p-4 md:p-8 mx-2 sm:mx-4 md:mx-auto relative border border-indigo-100">
                         <button
                             onClick={() => setShowGuidelines(false)}
                             className="absolute top-3 right-4 text-xl text-gray-400 hover:text-indigo-600 font-bold"
@@ -186,123 +184,116 @@ export default function Home() {
                 </div>
             )}
 
-           <section
-  className="w-full flex flex-col md:flex-row items-stretch justify-around gap-12 py-4 px-4 bg-transparent"
-  style={{
-    minHeight: "340px",
-    marginBottom: "32px",
-    border: `1.5px solid ${BORDER}`,
-    
-  }}
->
-  
-  <div className="flex flex-1 flex-col items-end justify-between py-4">
-    <div className="w-full text-right">
-      <span
-        className="mb-2 text-2xl md:text-5xl font-extrabold"
-        style={{ color: INDIGO, lineHeight: 1.18 }}
-      >
-        Lost something?<br />Don’t worry.
-      </span>
-      <p className="mt-2 text-base md:text-xl text-gray-500 font-medium">
-        Post details and let the community <br /> help you recover it.
-      </p>
-    </div>
-    <img
-      src={lostBoy}
-      alt="Lost Boy"
-      className="my-4 w-[15vw]"
-      style={{ objectFit: "contain" }}
-    />
-    <button
-      onClick={lostClick}
-      className="px-8 py-2 rounded-full font-bold text-base md:text-2xl mr-12 shadow transition focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2"
-      style={{
-        background: INDIGO,
-        color: TEXT_LIGHT,
-        letterSpacing: "1px",
-        minWidth: "108px",
-      }}
-    >
-      LOST
-    </button>
-  </div>
+            
+            <section
+                className="w-full flex flex-col md:flex-row items-stretch justify-around gap-6 md:gap-12 py-4 px-2 sm:px-4 bg-transparent"
+                style={{
+                    minHeight: "340px",
+                    marginBottom: "32px",
+                    border: `1.5px solid ${BORDER}`,
+                }}
+            >
+               
+                <div className="flex flex-1 flex-col items-end justify-between py-4">
+                    <div className="w-full text-right">
+                        <span
+                            className="mb-2 text-2xl md:text-5xl font-extrabold"
+                            style={{ color: INDIGO, lineHeight: 1.18 }}
+                        >
+                            Lost something?<br />Don’t worry.
+                        </span>
+                        <p className="mt-2 text-base md:text-xl text-gray-500 font-medium">
+                            Post details and let the community <br /> help you recover it.
+                        </p>
+                    </div>
+                    <img
+                        src={lostBoy}
+                        alt="Lost Boy"
+                        className="my-4 w-[15vw]"
+                        style={{ objectFit: "contain" }}
+                    />
+                    <button
+                        onClick={lostClick}
+                        className="px-8 py-2 rounded-full font-bold text-base md:text-2xl mr-12 shadow transition focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2"
+                        style={{
+                            background: INDIGO,
+                            color: TEXT_LIGHT,
+                            letterSpacing: "1px",
+                            minWidth: "108px",
+                        }}
+                    >
+                        LOST
+                    </button>
+                </div>
 
-  
-  <div className="hidden md:flex flex-col items-center justify-center">
-    <div className="h-full w-px bg-gray-200 opacity-50" />
-  </div>
+                <div className="hidden md:flex flex-col items-center justify-center">
+                    <div className="h-full w-px bg-gray-200 opacity-50" />
+                </div>
 
-  
-  <div className="flex flex-1 flex-col items-start justify-between py-4">
-    <div className="w-full text-left">
-      <span
-        className="mb-2 text-2xl md:text-5xl font-extrabold"
-        style={{ color: FOUND_PINK, lineHeight: 1.18 }}
-      >
-        Found something?<br />Bravo!
-      </span>
-      <p className="mt-2 text-base md:text-lg text-gray-500 font-medium">
-        Help someone by reporting <br />what you found.
-      </p>
-    </div>
-    <img
-      src={foundGirl}
-      alt="Found Girl"
-      className="my-4 w-[15vw]"
-      style={{ objectFit: "contain" }}
-    />
-    <button
-      onClick={foundClick}
-      className="px-8 py-2 rounded-full font-bold text-base md:text-2xl ml-12 shadow transition focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2"
-      style={{
-        background: FOUND_PINK,
-        color: TEXT_LIGHT,
-        letterSpacing: "1px",
-        minWidth: "120px",
-      }}
-    >
-      FOUND
-    </button>
-  </div>
-</section>
+                <div className="flex flex-1 flex-col items-start justify-between py-4">
+                    <div className="w-full text-left">
+                        <span
+                            className="mb-2 text-2xl md:text-5xl font-extrabold"
+                            style={{ color: FOUND_PINK, lineHeight: 1.18 }}
+                        >
+                            Found something?<br />Bravo!
+                        </span>
+                        <p className="mt-2 text-base md:text-lg text-gray-500 font-medium">
+                            Help someone by reporting <br />what you found.
+                        </p>
+                    </div>
+                    <img
+                        src={foundGirl}
+                        alt="Found Girl"
+                        className="my-4 w-[15vw]"
+                        style={{ objectFit: "contain" }}
+                    />
+                    <button
+                        onClick={foundClick}
+                        className="px-8 py-2 rounded-full font-bold text-base md:text-2xl ml-12 shadow transition focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2"
+                        style={{
+                            background: FOUND_PINK,
+                            color: TEXT_LIGHT,
+                            letterSpacing: "1px",
+                            minWidth: "120px",
+                        }}
+                    >
+                        FOUND
+                    </button>
+                </div>
+            </section>
 
-
-            <main className="px-4 py-12">
-                <div className="max-w-4xl mx-auto space-y-12">
+            <main className="px-2 sm:px-4 py-6 md:py-12">
+                <div className="max-w-4xl mx-auto space-y-8 md:space-y-12">
                     {active === "lost" && user &&
                         <section
                             ref={lostFormRef}
-                            className="rounded-2xl shadow-md p-8 mb-8"
+                            className="rounded-2xl shadow-md p-3 sm:p-4 md:p-8 mb-8"
                             style={{
                                 background: CARD_BG,
                                 border: `1.5px solid ${INDIGO}22`,
                                 color: INDIGO
                             }}
                         >
-                            <h2 className="text-2xl font-bold mb-4" style={{ color: INDIGO }}>
-                                
-                            </h2>
+                            <h2 className="text-2xl font-bold mb-4" style={{ color: INDIGO }}></h2>
                             <LostItemForm />
                         </section>
                     }
                     {active === "found" && user &&
                         <section
                             ref={foundFormRef}
-                            className="rounded-2xl shadow-md p-8 mb-8"
+                            className="rounded-2xl shadow-md p-3 sm:p-4 md:p-8 mb-8"
                             style={{
                                 background: CARD_BG,
                                 border: `1.5px solid ${FOUND_PINK}22`,
                                 color: FOUND_PINK
                             }}
                         >
-                            <h2 className="text-2xl font-bold mb-4" style={{ color: FOUND_PINK }}>
-                                
-                            </h2>
+                            <h2 className="text-2xl font-bold mb-4" style={{ color: FOUND_PINK }}></h2>
                             <FoundItemForm />
                         </section>
                     }
-                    
+
                     <div ref={lostFeedRef}>
                         <LostItemFeed />
                     </div>

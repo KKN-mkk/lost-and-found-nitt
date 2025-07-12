@@ -123,7 +123,6 @@ const AuthForm = () => {
                 {isRegister ? "Create Account" : "Sign In"}
               </h2>
 
-             
               <div className="relative">
                 <HiOutlineMail
                   className="absolute left-4 top-1/2 -translate-y-1/2 text-2xl"
@@ -140,7 +139,6 @@ const AuthForm = () => {
                 />
               </div>
 
-              
               <div className="relative">
                 <HiOutlineLockClosed
                   className="absolute left-4 top-1/2 -translate-y-1/2 text-2xl"
@@ -157,7 +155,6 @@ const AuthForm = () => {
                 />
               </div>
 
-              
               <motion.button
                 type="submit"
                 disabled={loading}
@@ -201,7 +198,6 @@ const AuthForm = () => {
                 )}
               </motion.button>
 
-              
               <motion.button
                 type="button"
                 onClick={() => setIsRegister(!isRegister)}
@@ -215,7 +211,6 @@ const AuthForm = () => {
                   : "Don't have an account? Register"}
               </motion.button>
 
-              
               <AnimatePresence>
                 {error && (
                   <motion.div
