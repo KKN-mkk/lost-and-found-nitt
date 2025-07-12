@@ -275,8 +275,11 @@ export default function Home() {
                                 color: INDIGO
                             }}
                         >
-                            <h2 className="text-2xl font-bold mb-4" style={{ color: INDIGO }}></h2>
-                            <LostItemForm />
+                            <h2 className="text-2xl font-bold mb-4" style={{ color: INDIGO }}>
+  Report Lost Item
+</h2>
+<LostItemForm />
+
                         </section>
                     }
                     {active === "found" && user &&
