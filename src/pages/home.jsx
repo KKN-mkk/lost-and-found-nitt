@@ -292,7 +292,8 @@ export default function Home() {
                                 color: FOUND_PINK
                             }}
                         >
-                            <h2 className="text-2xl font-bold mb-4" style={{ color: FOUND_PINK }}></h2>
+                            <h2 className="text-2xl font-bold mb-4" style={{ color: FOUND_PINK }}>
+                            Repport Found Item</h2>
                             <FoundItemForm />
                         </section>
                     }
