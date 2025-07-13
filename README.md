@@ -32,7 +32,7 @@ A centralized platform designed to streamline the **lost & found** process for s
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 | Frontend | Backend            | Database           | Hosting          |
 | -------- | ------------------ | ------------------ | ---------------- |
