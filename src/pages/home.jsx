@@ -96,14 +96,7 @@ export default function Home() {
                 style={{ background: CARD_BG, borderColor: BORDER }}
             >
                 <div className="flex items-center gap-2 text-2xl font-bold tracking-tight">
-                    <span
-                        className="text-3xl"
-                        style={{
-                            color: "#8B5CF6",
-                            fontWeight: 900,
-                            letterSpacing: "1px"
-                        }}
-                    >&#9679;</span>
+                    
                     <span style={{ color: INDIGO, fontWeight: 800 }}>FindNITT</span>
                 </div>
                 <ul className="flex flex-wrap gap-2 sm:gap-4 md:gap-6 text-base font-medium" style={{ color: "#808080" }}>
@@ -184,7 +177,7 @@ export default function Home() {
                 </div>
             )}
 
-            
+
             <section
                 className="w-full flex flex-col md:flex-row items-stretch justify-around gap-6 md:gap-12 py-4 px-2 sm:px-4 bg-transparent"
                 style={{
@@ -193,7 +186,7 @@ export default function Home() {
                     border: `1.5px solid ${BORDER}`,
                 }}
             >
-               
+
                 <div className="flex flex-1 flex-col items-end justify-between py-4">
                     <div className="w-full text-right">
                         <span
@@ -276,9 +269,9 @@ export default function Home() {
                             }}
                         >
                             <h2 className="text-2xl font-bold mb-4" style={{ color: INDIGO }}>
-  Report Lost Item
-</h2>
-<LostItemForm />
+                                Report Lost Item
+                            </h2>
+                            <LostItemForm />
 
                         </section>
                     }
@@ -293,7 +286,7 @@ export default function Home() {
                             }}
                         >
                             <h2 className="text-2xl font-bold mb-4" style={{ color: FOUND_PINK }}>
-                            Repport Found Item</h2>
+                                Repport Found Item</h2>
                             <FoundItemForm />
                         </section>
                     }
